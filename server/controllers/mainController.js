@@ -1,5 +1,3 @@
-// controllers/mainController.js
-
 import Template from "../models/Template.js";
 import User from "../models/User.js";
 import Tag from "../models/Tag.js";

@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import "dotenv/config";
 import sequelize from "./config/db.js";
 import mainRoutes from "./routes/mainRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
 import "./models/User.js";
 import "./models/Template.js";
 import "./models/Question.js";
@@ -25,6 +26,7 @@ app.use(bodyParser.json());
 app.use(express.json());
 
 app.use("/", mainRoutes);
+app.use("/auth", authRoutes);
 
 app.listen(PORT, async () => {
   console.log(`Server is running on port ${PORT}`);
