@@ -20,8 +20,15 @@ import "./models/associations.js";
 const app = express();
 
 const PORT = process.env.PORT;
+const allowedOrigins = process.env.ALLOWED_ORIGINS.split(",");
 
-app.use(cors());
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+  })
+);
 app.use(bodyParser.json());
 app.use(express.json());
 
