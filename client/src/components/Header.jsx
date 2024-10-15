@@ -1,6 +1,8 @@
 import logo from "../assets/Logo.png";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+  const navigate = useNavigate();
   return (
     <div className="flex p-4 bg-gray-100 border-b-4 justify-between shadow-md items-center">
       <div>
@@ -14,7 +16,10 @@ function Header() {
         ></input>
       </div>
       <div className="flex space-x-4">
-        <button className="bg-blue-500 text-white rounded-md px-4 py-2 hover:bg-blue-700 hover:shadow-lg transition">
+        <button
+          onClick={() => navigate("/login")}
+          className="bg-blue-500 text-white rounded-md px-4 py-2 hover:bg-blue-700 hover:shadow-lg transition"
+        >
           Login
         </button>
 
