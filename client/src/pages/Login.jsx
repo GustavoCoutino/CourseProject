@@ -36,8 +36,7 @@ function Login() {
     try {
       const response = await authService.login(email, password);
       if (response) {
-        console.log("Login successful");
-        navigate("/profile");
+        navigate("/");
       }
     } catch (error) {
       console.error(error);

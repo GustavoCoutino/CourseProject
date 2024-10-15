@@ -1,9 +1,10 @@
 import axios from "axios";
-
 const apiClient = axios.create({
-  baseURL: "https://some-domain.com/api/",
-  timeout: 1000,
-  headers: { "X-Custom-Header": "foobar" },
+  baseURL: import.meta.env.VITE_REACT_API_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
+  withCredentials: true,
 });
 
 export default apiClient;
