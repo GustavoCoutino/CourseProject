@@ -81,23 +81,17 @@ const mainController = {
       }
 
       const templateTags = await TemplateTag.findAll({
-        where: { tagId: tag.id }, // Find all TemplateTag entries with the given tagId
-        attributes: ["templateId"], // Only get the templateId field
+        where: { tagId: tag.id },
+        attributes: ["templateId"],
       });
-
-      // Step 3: Extract template IDs
       const templateIds = templateTags.map((tt) => tt.templateId);
-
-      // Step 4: Fetch the templates with the IDs obtained above, include the User data
       const templates = await Template.findAll({
-        where: { templateId: templateIds }, // Find templates with the IDs obtained from TemplateTag
+        where: { templateId: templateIds },
         include: {
-          model: User, // Include the User model to get author information
-          attributes: ["userId", "username"], // Only fetch the userId and username
+          model: User,
+          attributes: ["userId", "username"],
         },
       });
-
-      // Step 5: Return the templates
       res.json({
         tag: tags,
         templates,
