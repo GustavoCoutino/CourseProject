@@ -23,7 +23,10 @@ function Header() {
           Login
         </button>
 
-        <button className="bg-white text-blue-500 border border-blue-500 rounded-md px-4 py-2 hover:bg-gray-200 hover:shadow-lg transition">
+        <button
+          onClick={() => navigate("/register")}
+          className="bg-white text-blue-500 border border-blue-500 rounded-md px-4 py-2 hover:bg-gray-200 hover:shadow-lg transition"
+        >
           Register
         </button>
       </div>
